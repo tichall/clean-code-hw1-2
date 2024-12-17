@@ -8,20 +8,14 @@ public class Main {
     public static void main(String[] args) {
         boolean run = true;
         Scanner scanner = new Scanner(System.in);
+        Menu menu = new Menu();
+        setMenu(menu);
 
         while(run) {
             List<Integer> operandList;
             printStudentInfo();
 
-            // Menu 클래스 추가
-            // 리스트?로 메뉴 텍스트? 관리?
-            // 메뉴를 출력해주는 메서드
-            // printMenu();
-
-            System.out.println("1. Permutation (nPr)");
-            System.out.println("2. Combination (nCr)");
-            System.out.println("3. Quit");
-            System.out.println("> ");
+            menu.printMenuList();
             int selectedMenu = scanner.nextInt();
             int n, r;
 
@@ -53,6 +47,11 @@ public class Main {
         System.out.println("[ Name: 이서연 ]");
     }
 
+    private static void setMenu(Menu menu) {
+        menu.appendMenu("Permutation (nPr)");
+        menu.appendMenu("Combination (nCr)");
+    }
+
     private static List<Integer> inputOperands(Scanner scanner, int operandCount) {
         List<Integer> operandList = new ArrayList<>();
 
@@ -61,7 +60,6 @@ public class Main {
             int n = scanner.nextInt();
             operandList.add(n);
         }
-
         return operandList;
     }
 }
